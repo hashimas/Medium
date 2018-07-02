@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:medium/presenter/home/drawer.dart';
 import 'package:medium/presenter/interests/topic.dart';
 import 'package:medium/presenter/interests/people.dart';
+import 'package:medium/presenter/interests/publication.dart';
 
 class Interests extends StatefulWidget{
   @override
@@ -37,14 +38,8 @@ class InterestsState extends State<Interests>{
            body: new TabBarView(children: <Widget>[
            new Topics(),
            new People(),
-           new Center(child: Text('Publication'),),
+           new Publication(),
 
-         ],) ,floatingActionButton:
-           new FloatingActionButton(
-             onPressed: (){},
-             child: new Icon(Icons.search),
-             backgroundColor: Colors.white,
-             foregroundColor: Colors.green[500] ,
-             elevation: 2.0,),drawer: new NavigationDrawer(), ));
+         ],),drawer: new NavigationDrawer(), ));
   }
 }

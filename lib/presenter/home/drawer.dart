@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:medium/presenter/home/home_presenter.dart';
 import 'package:medium/presenter/bookmarks/bookmarks.dart';
 import 'package:medium/presenter/interests/interest.dart';
+import 'package:medium/presenter/profile/profile.dart';
 class NavigationDrawer extends StatefulWidget{
   @override
   State<StatefulWidget> createState()=> new NavigationDrawerState();
@@ -12,9 +13,9 @@ class NavigationDrawerState extends State<NavigationDrawer>{
 
     return new Drawer(child: new ListView(padding: EdgeInsets.only(left: 12.0,top: 48.0),children: <Widget>[
       new DrawerHeader(padding: EdgeInsets.all(0.0),margin: EdgeInsets.all(0.0) ,child: new ListView(children: <Widget>[
-        new ListTile(leading: new CircleAvatar(backgroundImage: AssetImage('lib/images/pix.jpg'),),),
-        new ListTile(leading: new Text('Hashim Ismail',style: TextStyle(fontSize: 16.0),),),
-        new ListTile(leading: new Text('See profile'),),
+        new ListTile(onTap: (){navigateToNewPage('Profiles');},leading: Container(width: 70.0,height: 70.0,decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0),),child: new  CircleAvatar(backgroundImage: new AssetImage('lib/images/profile.jpg',),)),),
+        new ListTile(onTap: (){navigateToNewPage('Profiles');},leading: new Text('Hashim Ismail',style: TextStyle(fontSize: 16.0),),),
+        new ListTile(onTap: (){navigateToNewPage('Profiles');},leading: new Text('See profile'),),
       ],),),
       new ListTile(title: new Text('Home',style: new TextStyle(color: Colors.black,fontSize: 16.0,),),onTap: (){navigateToNewPage('Home');},),
       new ListTile(title: new Text('Audio',style: new TextStyle(color: Colors.black,fontSize: 16.0,)),onTap: (){navigateToNewPage('Audio');},),
@@ -38,9 +39,13 @@ class NavigationDrawerState extends State<NavigationDrawer>{
 
   navigateToNewPage(String page){
     switch(page){
+      case 'Profiles':{
+        Navigator.of(context).pop();
+        Navigator.of(context).push(new MaterialPageRoute(builder: (context) => new Profiles()));
+      }break;
       case 'Home':{
         Navigator.of(context).pop();
-        Navigator.push(context, new MaterialPageRoute(builder: (context) => new MyApp()));
+        Navigator.of(context).push(new MaterialPageRoute(builder: (context) => new MyApp()));
       }break;
       case 'Audio':{
 
