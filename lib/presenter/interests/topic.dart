@@ -9,12 +9,14 @@ class TopicsState extends State<Topics> {
   static const Color transparent = const Color(0x00000000);
   double screenWidth;
   double cardWidth;
+  var category = ['Art','Comics','Culture','Film','Food','Gaming','Humor','Lit','Music','Photography','Social media','Sports','True crime','Writing'];
+
 
   @override
   Widget build(BuildContext covariant) {
     screenWidth = MediaQuery.of(covariant).size.width;
     cardWidth = screenWidth * 0.60;
-    int size = 10;
+    int size = 14;
     return new ListView.builder(itemBuilder: (BuildContext ctx, int index){
       return  createCardItems(index);
     },itemCount: size == null ? 0 : size,);
@@ -24,7 +26,7 @@ class TopicsState extends State<Topics> {
        return createFirstListItem();
      }else{
        return new Container(child: new ListTile(leading: new Container(width:40.0,child: new Image.asset('lib/images/pix.jpg',fit: BoxFit.cover,),decoration: BoxDecoration(shape: BoxShape.rectangle,borderRadius: BorderRadius.all(Radius.circular(2.0)),border: Border.all(style: BorderStyle.solid),),foregroundDecoration: BoxDecoration(shape: BoxShape.rectangle,borderRadius: BorderRadius.all(Radius.circular(2.0))),) ,
-         title: new Text('Art',style: TextStyle(fontSize: 13.0,color: Colors.black,fontWeight: FontWeight.bold),),trailing: Container(width: 80.0,height: 30.0,decoration: BoxDecoration(color: Colors.green,shape: BoxShape.rectangle,borderRadius:BorderRadius.all(Radius.circular(2.0))),padding: EdgeInsets.all(1.0),child: new RaisedButton(onPressed: (){},child: new Text('Follow'),color: Colors.white,textColor: Colors.black,)) ,onTap: (){} ,),);
+         title: new Text(category[index],style: TextStyle(fontSize: 13.0,color: Colors.black,fontWeight: FontWeight.bold),),trailing: Container(width: 80.0,height: 30.0,decoration: BoxDecoration(color: Colors.green,shape: BoxShape.rectangle,borderRadius:BorderRadius.all(Radius.circular(2.0))),padding: EdgeInsets.all(1.0),child: new RaisedButton(onPressed: (){},child: new Text('Follow'),color: Colors.white,textColor: Colors.black,)) ,onTap: (){} ,),);
      }
   }
   Widget createFirstListItem(){
