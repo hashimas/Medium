@@ -1,7 +1,7 @@
 # Medium Android App
 
 Medium Andoid App Clone using Flutter Plugin for Dart Programming Langauge by google
-![Alt text](lib/screenshots/group.gif?raw=true "Screenshots")
+![Alt text](lib/screenshots/group.png?raw=true "Screenshots")
 
 
 ## Getting Started
